@@ -5,7 +5,6 @@ import java.util.Objects;
 
 import seedu.dukeofbooks.common.IVerifiable;
 import seedu.dukeofbooks.data.book.BorrowableItem;
-import seedu.dukeofbooks.data.person.Person;
 import seedu.dukeofbooks.data.exception.IllegalDateException;
 import seedu.dukeofbooks.data.user.User;
 
@@ -27,7 +26,7 @@ public class Loan implements IVerifiable {
         this.loanStart = loanStart;
         this.loanEnd = loanEnd;
     }
-    public Person getBorrower() {
+    public User getBorrower() {
         return borrower;
     }
     public BorrowableItem getBorrowedItem() {
