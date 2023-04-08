@@ -7,19 +7,20 @@ import seedu.dukeofbooks.common.IVerifiable;
 import seedu.dukeofbooks.data.book.BorrowableItem;
 import seedu.dukeofbooks.data.person.Person;
 import seedu.dukeofbooks.data.exception.IllegalDateException;
+import seedu.dukeofbooks.data.user.User;
 
 public class Loan implements IVerifiable {
     public static final String LOAN_DATE_IS_AFTER_LOAN_START =
             "Error: loan date after loan start date";
     public static final double OVERDUE_FEE_PER_DAY = 1.0;
     private BorrowableItem item;
-    private Person borrower;
+    private User borrower;
     private LocalDateTime loanStart;
     private LocalDateTime loanEnd;
     private boolean isReturned;
     
 
-    public Loan(BorrowableItem toBorrow, Person borrower,
+    public Loan(BorrowableItem toBorrow, User borrower,
                 LocalDateTime loanStart, LocalDateTime loanEnd) {
         this.item = toBorrow;
         this.borrower = borrower;
@@ -35,7 +36,7 @@ public class Loan implements IVerifiable {
     public void setBorrowedItem (BorrowableItem newItem) {
         item = newItem;
     }
-    public void setBorrower(Person borrower) {
+    public void setBorrower(User borrower) {
         this.borrower = borrower;
     }
     public LocalDateTime getLoanStart() {

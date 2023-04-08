@@ -10,6 +10,7 @@ import seedu.dukeofbooks.data.person.Person;
 import seedu.dukeofbooks.data.person.Phone;
 import seedu.dukeofbooks.data.loan.Loan;
 import seedu.dukeofbooks.data.person.PersonName;
+import seedu.dukeofbooks.data.user.User;
 
 import java.time.LocalDate;
 
@@ -30,8 +31,7 @@ public class LoanTest {
     }
 
     private Loan createLoan() throws IllegalValueException {
-        Person borrower = new Person(new PersonName("Someone"),
-                new Phone(12345678));
+        User borrower = new User("Someone", "1234", "name");
         LocalDate today = LocalDate.now();
         return new Loan(createBook(), borrower, today.atStartOfDay(),
                 today.plusDays(30).atStartOfDay());

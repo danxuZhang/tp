@@ -4,8 +4,8 @@ import seedu.dukeofbooks.controller.LoanController;
 import seedu.dukeofbooks.data.exception.LoanRecordNotFoundException;
 import seedu.dukeofbooks.data.exception.PaymentUnsuccessfulException;
 import seedu.dukeofbooks.data.loan.LoanRecords;
-import seedu.dukeofbooks.data.person.Person;
 import seedu.dukeofbooks.data.book.BorrowableItem;
+import seedu.dukeofbooks.data.user.User;
 
 public final class ReturnCommand extends LoanCommand {
     public static final String COMMAND_WORD = "return";
@@ -13,10 +13,10 @@ public final class ReturnCommand extends LoanCommand {
     private static final String FAIL_MSG = "Item is not borrowed!";
     private static final String ERROR_MSG_F = "Cannot return item: %s";
     private static final String NOT_FOUND_MSG = "Item not found!";
-    Person person;
-    BorrowableItem item;
+    private final User person;
+    private final BorrowableItem item;
     
-    public ReturnCommand(LoanRecords loanRecords, Person person, BorrowableItem item) {
+    public ReturnCommand(LoanRecords loanRecords, User person, BorrowableItem item) {
         super(loanRecords);
         this.person = person;
         this.item = item;

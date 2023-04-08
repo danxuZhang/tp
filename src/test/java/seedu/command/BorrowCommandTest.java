@@ -6,7 +6,7 @@ import seedu.dukeofbooks.command.CommandResult;
 import seedu.dukeofbooks.data.book.Book;
 import seedu.dukeofbooks.data.exception.IllegalValueException;
 import seedu.dukeofbooks.data.loan.LoanRecords;
-import seedu.dukeofbooks.data.person.Person;
+import seedu.dukeofbooks.data.user.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class BorrowCommandTest {
     private static final LoanRecords loanRecords = new LoanRecords();
     private static final Book sampleBook = createBook("java coffee");
-    private static final Person samplePerson = createPerson("john");
+    private static final User sampleUser = createUser("john");
     private static final String SUCCESS_MSG = "Borrow is successful.";
     private static final String FAIL_MSG = "This item is not borrowable.";
 
@@ -26,11 +26,11 @@ public class BorrowCommandTest {
         }
     }
 
-    private static Person createPerson(String name) {
+    private static User createUser(String username) {
         try {
-            return new Person(name);
+            return new User(username, "123456", "name");
         } catch (IllegalValueException ive) {
-            throw new RuntimeException();
+            throw new RuntimeException(ive.getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ public class BorrowCommandTest {
         }
 
         // execution
-        BorrowCommand borrowCommand = new BorrowCommand(loanRecords, samplePerson, sampleBook);
+        BorrowCommand borrowCommand = new BorrowCommand(loanRecords, sampleUser, sampleBook);
         CommandResult result = borrowCommand.execute();
 
         // check borrow is borrowed
@@ -61,7 +61,7 @@ public class BorrowCommandTest {
         }
 
         // execution
-        BorrowCommand borrowCommand = new BorrowCommand(loanRecords, samplePerson, sampleBook);
+        BorrowCommand borrowCommand = new BorrowCommand(loanRecords, sampleUser, sampleBook);
         CommandResult result = borrowCommand.execute();
 
         // check book is still borrowed

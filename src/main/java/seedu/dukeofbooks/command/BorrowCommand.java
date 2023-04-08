@@ -2,9 +2,9 @@ package seedu.dukeofbooks.command;
 
 import seedu.dukeofbooks.controller.LoanController;
 import seedu.dukeofbooks.data.exception.DuplicateActionException;
-import seedu.dukeofbooks.data.person.Person;
 import seedu.dukeofbooks.data.loan.LoanRecords;
 import seedu.dukeofbooks.data.book.BorrowableItem;
+import seedu.dukeofbooks.data.user.User;
 
 import java.time.LocalDateTime;
 
@@ -14,10 +14,10 @@ public final class BorrowCommand extends LoanCommand {
     private static final String FAIL_MSG = "This item is not borrowable.";
     private static final String ERROR_MSG = "Cannot borrow: %s";
     private static final String NOT_FOUND_MSG = "Item not found!";
-    private final Person person;
+    private final User person;
     private final BorrowableItem item;
 
-    public BorrowCommand(LoanRecords loanRecords,Person person, BorrowableItem item) {
+    public BorrowCommand(LoanRecords loanRecords, User person, BorrowableItem item) {
         super(loanRecords);
         this.person = person;
         this.item = item;

@@ -19,7 +19,8 @@ import seedu.dukeofbooks.data.book.Book;
 import seedu.dukeofbooks.data.book.BorrowableItem;
 import seedu.dukeofbooks.data.exception.IllegalValueException;
 import seedu.dukeofbooks.data.loan.LoanRecords;
-import seedu.dukeofbooks.data.person.Person;
+import seedu.dukeofbooks.data.user.User;
+
 import static seedu.dukeofbooks.common.Messages.TITLE_ARG;
 import static seedu.dukeofbooks.common.Messages.TOPIC_ARG;
 import static seedu.dukeofbooks.common.Messages.AUTHOR_ARG;
@@ -29,11 +30,11 @@ import static seedu.dukeofbooks.common.Messages.SPACE_CHAR;
 import static seedu.dukeofbooks.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 public class UserCommandParser implements IParser {
-    private final Person currentUser;
+    private final User currentUser;
     // todo set loan records
     private final LoanRecords loanRecords;
 
-    public UserCommandParser(Person user, LoanRecords loanRecords) {
+    public UserCommandParser(User user, LoanRecords loanRecords) {
         this.currentUser = user;
         this.loanRecords = loanRecords;
     }

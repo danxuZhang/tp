@@ -98,6 +98,10 @@ public class LoanRecords {
         return null;
     }
 
+    public List<Loan> getInternalList() {
+        return internalList;
+    }
+
     public Iterator<Loan> iterator() {
         return internalList.iterator();
     }
