@@ -33,7 +33,7 @@ public class UserCommandParser implements IParser {
     // todo set loan records
     private final LoanRecords loanRecords;
 
-    public UserCommandParser(Person user, LoanRecords loanRecords, SearchController searchController) {
+    public UserCommandParser(Person user, LoanRecords loanRecords) {
         this.currentUser = user;
         this.loanRecords = loanRecords;
     }

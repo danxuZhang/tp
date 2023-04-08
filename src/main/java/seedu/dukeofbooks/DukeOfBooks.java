@@ -7,7 +7,6 @@ import seedu.dukeofbooks.command.CommandResult;
 import seedu.dukeofbooks.command.ExitCommand;
 import seedu.dukeofbooks.command.LogoutCommand;
 import seedu.dukeofbooks.command.UserCommand;
-import seedu.dukeofbooks.controller.SearchController;
 import seedu.dukeofbooks.data.inventory.Inventory;
 import seedu.dukeofbooks.data.loan.LoanRecords;
 import seedu.dukeofbooks.data.user.User;
@@ -26,12 +25,10 @@ import java.io.IOException;
 public class DukeOfBooks {
 
     public static final String VERSION = "DukeOfBooks - Version 2.1";
-    private LoanRecords allLoanRecords;
+    private LoanRecords loanRecords;
     private UserRecords userRecords;
-    private SearchController searchController = new SearchController();
     private User currentUser;
     private TextUi ui;
-
     private Inventory inventory = new Inventory();
 
     public static void main(String[] args) {
@@ -45,7 +42,7 @@ public class DukeOfBooks {
     }
 
     private void start() {
-        this.allLoanRecords = new LoanRecords();
+        this.loanRecords = new LoanRecords();
         this.userRecords = new UserRecords();
         this.ui = new TextUi();
         // Add book data into inventory
@@ -99,7 +96,7 @@ public class DukeOfBooks {
         UserCommand userCommand;
         do {
             String userCommandText = ui.getUserCommand();
-            userCommand = new UserCommandParser(currentUser, allLoanRecords, searchController)
+            userCommand = new UserCommandParser(currentUser, loanRecords)
                     .parseCommand(userCommandText);
             CommandResult result = executeUserCommand(userCommand);
             ui.showResultToUser(result);
